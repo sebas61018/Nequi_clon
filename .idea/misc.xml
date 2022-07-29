@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Nequi_clon/app/src/main/res/drawable/outlinedbutoon.xml" value="0.1325" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Nequi_clon/app/src/main/res/layout/activity_login.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Nequi_clon/app/src/main/res/layout/activity_main.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/Nequi_clon/app/src/main/res/layout/activity_splahcreen.xml" value="0.1" />
       </map>
     </option>
   </component>

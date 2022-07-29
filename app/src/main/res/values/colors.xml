@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="nequi_colo1">#d3266b</color>
+    <color name="nequi_colo2">#8a1b65</color>
+    <color name="nequi_fonoinicio">#210049</color>
 </resources>

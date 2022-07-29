@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registroUsuarios"
+    android:background="@color/nequi_fonoinicio">
+
+    <EditText
+        android:id="@+id/nombreusuario"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/styleseditextdos"
+        android:hint="Ingrese el Nombre"
+        android:paddingHorizontal="10dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/cedulausuario"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/nombreusuario"
+        android:background="@drawable/styleseditextdos"
+        android:hint="Ingrese la Cedula"
+        android:paddingHorizontal="10dp"
+        android:drawablePadding="10dp"
+        android:inputType="number"
+        android:maxLength="10"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/celularusuario"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/cedulausuario"
+        android:background="@drawable/styleseditextdos"
+        android:hint="Ingrese el Celular"
+        android:paddingHorizontal="10dp"
+        android:drawablePadding="10dp"
+        android:inputType="number"
+        android:maxLength="10"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/claveusuario"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/celularusuario"
+        android:background="@drawable/styleseditextdos"
+        android:hint="Ingrese su clave"
+        android:paddingHorizontal="10dp"
+        android:drawablePadding="10dp"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/idiniciosesion"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/claveusuario"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/stylesbotton"
+        android:onClick="register"
+        android:text="Registrarme"
+        android:textColor="@color/nequi_colo1" />
+
+</RelativeLayout>

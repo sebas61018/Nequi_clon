@@ -15,7 +15,6 @@
         android:layout_marginTop="500dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/stylesbotton"
-        android:onClick="inicio"
         android:text="Inicia sesion"
         android:textColor="@color/nequi_colo1" />
 

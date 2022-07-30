@@ -14,7 +14,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button iniciosesion , crearusuario;
-    Toast toast;
 
 
 
@@ -30,29 +29,19 @@ public class MainActivity extends AppCompatActivity {
         crearusuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, registroUsuarios.class);
+                Intent i = new Intent(MainActivity.this, registroUsuario.class);
                 startActivity(i);
             }
         });
 
+        iniciosesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, loginUsuario.class);
+                startActivity(i);
+            }
+        });
 
-    }
-
-    private void alerToast(String msg){
-        if(toast != null) toast.cancel();
-        toast = Toast.makeText(this,msg,Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
-    public void inicio(View v){
-
-            iniciosesion.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(MainActivity.this, passwordUsuarios.class);
-                    startActivity(i);
-                }
-            });
     }
 
 }

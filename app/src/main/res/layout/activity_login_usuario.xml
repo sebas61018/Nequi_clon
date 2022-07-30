@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginUsuario">
+
+    <TextView
+        android:id="@+id/unete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:text="Iniciar Sesion"
+        android:textColor="@color/nequi_colo2"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/unete"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/styleseditextdos"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Ingrese su celular"
+        android:textSize="27dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/celularU1"
+        android:maxLength="10"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/celularU1"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/styleseditextdos"
+        android:hint="Ingrese su contraseña"
+        android:inputType="numberPassword"
+        android:maxLength="4"
+        android:paddingLeft="20dp"
+        android:textSize="27dp" />
+
+    <Button
+        android:id="@+id/signin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stylesbotton"
+        android:layout_marginHorizontal="30dp"
+        android:layout_below="@+id/password1"
+        android:layout_marginTop="90dp"
+        android:text="Resgistarse"/>
+</RelativeLayout>

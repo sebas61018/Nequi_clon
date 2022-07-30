@@ -14,13 +14,13 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".registroUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".loginUsuario"
+            android:exported="false" />
+        <activity
             android:name=".Interfas"
-            android:exported="false" />
-        <activity
-            android:name=".passwordUsuarios"
-            android:exported="false" />
-        <activity
-            android:name=".registroUsuarios"
             android:exported="false" />
         <activity
             android:name=".registro"

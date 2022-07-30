@@ -3,6 +3,7 @@ package com.example.nequi_clon;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,6 +21,7 @@ public class loginUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_usuario);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         celularU1 = findViewById(R.id.celularU1);
         password1 = findViewById(R.id.password1);
@@ -33,18 +35,18 @@ public class loginUsuario extends AppCompatActivity {
                 String pass = password1.getText().toString();
 
                 if(TextUtils.isEmpty(celu) || TextUtils.isEmpty(pass))
-                    Toast.makeText(loginUsuario.this, "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(loginUsuario.this, "Llenar todos los campos", Toast.LENGTH_SHORT).show();
                 else {
                     Boolean checkuserpass = DB.checkusernamepassword(celu,pass);
                     if(checkuserpass == true){
-                        Toast.makeText(loginUsuario.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginUsuario.this, "Bienvenido a Nequi", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),Interfas.class);
                         startActivity(intent);
 
                         celularU1.setText("");
                         password1.setText("");
                     }else {
-                        Toast.makeText(loginUsuario.this, "Registro fallido", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(loginUsuario.this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -2,6 +2,8 @@ package com.example.nequi_clon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 public class registroUsuario extends AppCompatActivity {
 
     EditText celularU,password,respassword,nameU;
-    Button signup;
+    Button signup,atras;
     DBHelper DB;
 
 
@@ -20,12 +22,14 @@ public class registroUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuario);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         celularU = findViewById(R.id.celularU);
         password = findViewById(R.id.password);
         respassword = findViewById(R.id.respassword);
         nameU = findViewById(R.id.nameU);
         signup = findViewById(R.id.signup);
+        atras = findViewById(R.id.atras);
 
         DB = new DBHelper(this);
 
@@ -61,6 +65,14 @@ public class registroUsuario extends AppCompatActivity {
                         Toast.makeText(registroUsuario.this, "La contraseña no coinciden", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginUsuario">
+    tools:context=".loginUsuario"
+    android:background="@color/nequi_fonoinicio">
 
     <TextView
         android:id="@+id/unete"
@@ -53,5 +54,5 @@
         android:layout_marginHorizontal="30dp"
         android:layout_below="@+id/password1"
         android:layout_marginTop="90dp"
-        android:text="Resgistarse"/>
+        android:text="Entrar"/>
 </RelativeLayout>

@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Interfas"
-    android:background="@drawable/nequifondo">
+    android:background="@drawable/fonfomenu">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

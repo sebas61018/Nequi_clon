@@ -16,6 +16,7 @@ public class registroUsuario extends AppCompatActivity {
     EditText celularU,password,respassword,nameU;
     Button signup,atras;
     DBHelper DB;
+    Toast toast;
 
 
     @Override
@@ -42,27 +43,27 @@ public class registroUsuario extends AppCompatActivity {
                 String nam = nameU.getText().toString();
 
                 if(TextUtils.isEmpty(celu) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(respass) || TextUtils.isEmpty(nam) )
-                    Toast.makeText(registroUsuario.this, "Llenar todos los campos", Toast.LENGTH_SHORT).show();
+                    alertToast("Llenar todos los campos");
                 else {
                     if(pass.equals(respass)){
                         Boolean checkuser = DB.checkusername(celu);
                         if(checkuser == false){
                             Boolean insert = DB.insertData(celu,pass,nam);
                             if(insert == true){
-                                Toast.makeText(registroUsuario.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+                                alertToast("Registro exitoso");
 
                                 celularU.setText("");
                                 password.setText("");
                                 respassword.setText("");
                                 nameU.setText("");
                             }else {
-                                Toast.makeText(registroUsuario.this, "Registro Fallido", Toast.LENGTH_SHORT).show();
+                                alertToast("Registro Fallido");
                             }
                         }else {
-                            Toast.makeText(registroUsuario.this, "Este usuario ya existe", Toast.LENGTH_SHORT).show();
+                            alertToast("Este usuario ya existe");
                         }
                     }else {
-                        Toast.makeText(registroUsuario.this, "La contraseña no coinciden", Toast.LENGTH_SHORT).show();
+                        alertToast("La contraseña no coinciden");
                     }
                 }
             }
@@ -75,6 +76,10 @@ public class registroUsuario extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+    }
+    private void alertToast(String msg){
+        if(toast != null) toast.cancel();
+        toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

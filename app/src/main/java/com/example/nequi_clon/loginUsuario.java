@@ -16,6 +16,7 @@ public class loginUsuario extends AppCompatActivity {
     EditText celularU1,password1;
     Button signin1;
     DBHelper DB;
+    Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +36,26 @@ public class loginUsuario extends AppCompatActivity {
                 String pass = password1.getText().toString();
 
                 if(TextUtils.isEmpty(celu) || TextUtils.isEmpty(pass))
-                    Toast.makeText(loginUsuario.this, "Llenar todos los campos", Toast.LENGTH_SHORT).show();
+                    alertToast("Llenar todos los campos");
                 else {
                     Boolean checkuserpass = DB.checkusernamepassword(celu,pass);
                     if(checkuserpass == true){
-                        Toast.makeText(loginUsuario.this, "Bienvenido a Nequi", Toast.LENGTH_SHORT).show();
+                        alertToast("Bienvenido a Nequi");
                         Intent intent = new Intent(getApplicationContext(),Interfas.class);
                         startActivity(intent);
 
                         celularU1.setText("");
                         password1.setText("");
                     }else {
-                        Toast.makeText(loginUsuario.this, "Datos incorrectos", Toast.LENGTH_SHORT).show();
+                        alertToast("Datos incorrectos");
                     }
                 }
             }
         });
-
+    }
+    private void alertToast(String msg){
+        if(toast != null) toast.cancel();
+        toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

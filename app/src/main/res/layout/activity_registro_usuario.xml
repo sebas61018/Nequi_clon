@@ -86,11 +86,12 @@
 
     <Button
         android:id="@+id/atras"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="640dp"
-        android:background="@drawable/stylesbottoncirculo" />
+        android:background="@drawable/stylesbottoncirculo"
+        android:text="Regresar"/>
 
 
 </RelativeLayout>

@@ -18,19 +18,20 @@
         android:textColor="@color/nequi_colo2"
         android:textSize="40dp"
         android:textStyle="bold" />
+
     <EditText
+        android:id="@+id/celularU1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/unete"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/styleseditextdos"
-        android:layout_marginHorizontal="20dp"
         android:hint="Ingrese su celular"
-        android:textSize="27dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/celularU1"
+        android:inputType="number"
         android:maxLength="10"
-        android:inputType="number"/>
+        android:paddingLeft="20dp"
+        android:textSize="27dp" />
 
     <EditText
         android:id="@+id/password1"

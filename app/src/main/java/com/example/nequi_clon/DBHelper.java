@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -18,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table users(celularU TEXT primary key, password TEXT, nameU TEXT)");
+        db.execSQL("create table users(celularU TEXT primary key, password TEXT, nameU TEXT,saldo TEXT)");
     }
 
     @Override
@@ -33,12 +31,12 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("celularU",celularU);
         values.put("password",password);
         values.put("nameU",nameU);
+        values.put("saldo",1000000);
 
         long result = db.insert("users",null,values);
         if(result == -1)return false;
         else
             return true;
-
     }
 
     public Boolean checkusername(String celularU){
@@ -62,4 +60,32 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
 
     }
+
+    public String consultar(String celularU){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from users where celularU='"+celularU+"'",null);
+        cursor.moveToFirst();
+        return cursor.getString(2);
+    }
+
+    public String consultarsaldo(String celularU){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from users where celularU='"+celularU+"'",null);
+        cursor.moveToFirst();
+        return cursor.getString(3);
+    }
+
+    public void actualizarValor(String celularU, String monto, String saldo){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+
+
+        ContentValues values = new ContentValues();
+        db.update("users",values,"celularU=?",new String[]{celularU});
+        return true;
+    }
+
 }

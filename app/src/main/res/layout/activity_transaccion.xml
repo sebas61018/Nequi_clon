@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".transaccion">
+    tools:context=".transaccion"
+    android:background="@drawable/fonfomenu">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/styleseditext"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginVertical="300dp"/>
+
+    <EditText
+        android:id="@+id/celulartransaccion"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginVertical="300dp"
+        android:background="@drawable/styleseditext"
+        android:hint="Celelular"
+        android:inputType="number"
+        android:maxLength="10"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/nequi_colo1" />
+
+    <EditText
+        android:id="@+id/dinerotransaccion"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/styleseditext"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginVertical="370dp"
+        android:textColorHint="@color/nequi_colo1"
+        android:hint="¿Cuanto?"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black"
+        android:maxLength="7"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/enviarDinero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginVertical="450dp"
+        android:background="@drawable/stylesbottoncirculo"
+        android:backgroundTint="@color/nequi_colo1"
+        android:text="Enviar" />
+
+    <TextView
+        android:id="@+id/textra"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginVertical="50dp"
+        android:background="@color/white"
+        android:textColor="@color/black"/>
+
+
+
+
+</RelativeLayout>

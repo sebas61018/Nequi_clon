@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
 public class loginUsuario extends AppCompatActivity {
 
     EditText celularU1,password1;
@@ -42,8 +44,10 @@ public class loginUsuario extends AppCompatActivity {
                     if(checkuserpass == true){
                         alertToast("Bienvenido a Nequi");
                         Intent intent = new Intent(getApplicationContext(),Interfas.class);
-                        startActivity(intent);
 
+                        intent.putExtra("celularU1", celularU1.getText().toString()); //putExtra
+
+                        startActivity(intent);
                         celularU1.setText("");
                         password1.setText("");
                     }else {

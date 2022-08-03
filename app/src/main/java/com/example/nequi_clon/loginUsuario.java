@@ -45,7 +45,7 @@ public class loginUsuario extends AppCompatActivity {
                         alertToast("Bienvenido a Nequi");
                         Intent intent = new Intent(getApplicationContext(),Interfas.class);
 
-                        intent.putExtra("celularU1", celularU1.getText().toString()); //putExtra
+                        intent.putExtra("celularU1", celularU1.getText().toString()); //putExtra mandar datos a la interfas
 
                         startActivity(intent);
                         celularU1.setText("");

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -13,6 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context) {
         super(context, "login.db", null, 1);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -77,15 +79,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor.getString(3);
     }
 
-    public void actualizarValor(String celularU, String monto, String saldo){
+    public Boolean updatesaldo(String celularU, String saldo){
         SQLiteDatabase db = this.getWritableDatabase();
 
-
-
-
         ContentValues values = new ContentValues();
-        db.update("users",values,"celularU=?",new String[]{celularU});
+        values.put("celularU",celularU);
+        values.put("saldo",saldo);
+
+
+        db.update("users",values,"celularU="+celularU,null);
         return true;
+
+
     }
+
+
 
 }

@@ -19,7 +19,7 @@ public class Interfas extends AppCompatActivity {
     DBHelper DB;
     Bundle bundle;
     String celularU1;
-    Button enviar;
+    Button enviar, historial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,11 @@ public class Interfas extends AppCompatActivity {
         usuNobre.setText(DB.consultar(celularU1));
 
         saldoUsuario = findViewById(R.id.saldoUsuario);
-
-        String saldo = DB.consultarsaldo(celularU1);
-        
         saldoUsuario.setText(DB.consultarsaldo(celularU1));
+
+        String saldo= DB.consultarsaldo(celularU1);
+        
+
 
 
         enviar = findViewById(R.id.enviar);
@@ -47,7 +48,18 @@ public class Interfas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),transaccion.class);
-                intent.putExtra("saldo",saldo);
+                intent.putExtra("saldo",saldo);// putExtra mandar datos a laransaccionstartActivity(intent);
+                startActivity(intent);
+
+
+            }
+        });
+
+        historial = findViewById(R.id.historial);
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), com.example.nequi_clon.historial.class);
                 startActivity(intent);
             }
         });

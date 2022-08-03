@@ -14,23 +14,29 @@ import android.widget.Toast;
 
 
 public class transaccion extends AppCompatActivity {
-    EditText celularH,saldoH;
+    EditText celularH,saldoH, celulardestinoH;
     Toast toast;
-    Button enviarDinero;
-    TextView text;
+    Button enviarDinero, volver;
     DBHelper DB;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_transaccion);
         DB = new DBHelper(this);
 
-        int saldo = Integer.parseInt(getIntent().getExtras().getString("saldo"));
+        int saldo = Integer.parseInt(getIntent().getExtras().getString("saldo"));// putExtra de interfacas a transaccion del saldo
 
-        celularH = findViewById(R.id.celulartransaccion);
+        celularH = findViewById(R.id.celularPropietario);
         saldoH = findViewById(R.id.dinerotransaccion);
-        text = findViewById(R.id.textra);
+        celulardestinoH = findViewById(R.id.celularDestino);
+
+
+
 
 
 
@@ -39,30 +45,49 @@ public class transaccion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 String celular = celularH.getText().toString();
                 String monto = saldoH.getText().toString();
+                String celularD= celulardestinoH.getText().toString();
 
-                if(TextUtils.isEmpty(celular) || TextUtils.isEmpty(monto))
+                if(TextUtils.isEmpty(celular) || TextUtils.isEmpty(monto) ||  TextUtils.isEmpty(celularD))
                 alertToast("Llenar todos los campos");
 
-                else if(Integer.parseInt(monto) <= saldo){
+                else if(Integer.parseInt(monto) <= saldo){ //convertir Strind monto de a entero
 
-                    int valorE = Integer.parseInt(monto);
-                    int valorR = saldo;
-                    int result =  valorR - valorE ;
+                    int num1=Integer.parseInt(monto);
+                    int resta = saldo - num1 ;
+                    String resu = String.valueOf(resta);
 
-                    Boolean updatedata;
+                    Boolean isUpdate = DB.updatesaldo(celularH.getText().toString(),resu);
+
+                    if(isUpdate == true){
+                        alertToast("Envio exitoso");
 
 
-                    alertToast("Envio exitoso");
+                    }else
+                        alertToast("Fallo en el envio");
+
+
+
                     celularH.setText("");
                     saldoH.setText("");
+                    celulardestinoH.setText("");
                 }else
                     alertToast("El monto supera su saldo");
-
                 }
 
         });
+
+        volver = findViewById(R.id.volver);
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Interfas.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

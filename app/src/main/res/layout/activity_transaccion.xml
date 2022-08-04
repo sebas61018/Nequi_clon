@@ -7,19 +7,13 @@
     tools:context=".transaccion"
     android:background="@drawable/fonfomenu">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/styleseditext"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginVertical="300dp"/>
 
     <EditText
         android:id="@+id/celularPropietario"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="80dp"
-        android:layout_marginVertical="300dp"
+        android:layout_marginVertical="242dp"
         android:background="@drawable/styleseditext"
         android:hint="Celelular Propietario"
         android:inputType="number"
@@ -33,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="80dp"
-        android:layout_marginVertical="370dp"
+        android:layout_marginVertical="300dp"
         android:background="@drawable/styleseditext"
         android:hint="¿Cuanto?"
         android:inputType="number"
@@ -47,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="80dp"
-        android:layout_marginVertical="440dp"
+        android:layout_marginVertical="370dp"
         android:background="@drawable/styleseditext"
         android:hint="Celelular Destino"
         android:inputType="number"
@@ -61,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="120dp"
-        android:layout_marginVertical="500dp"
+        android:layout_marginVertical="430dp"
         android:background="@drawable/stylesbottoncirculo"
         android:backgroundTint="@color/nequi_colo1"
         android:text="Enviar" />
@@ -71,10 +65,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="120dp"
-        android:layout_marginVertical="570dp"
+        android:layout_marginVertical="490dp"
         android:background="@drawable/stylesbottoncirculo"
         android:backgroundTint="@color/nequi_colo1"
         android:text="Volver" />
+
+    <Button
+        android:id="@+id/historial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stylesbottoncirculo"
+        android:layout_marginVertical="600dp"
+        android:layout_marginHorizontal="100dp"
+        android:text="Historial"
+        android:textColor="@color/nequi_colo2"/>
 
 
 

@@ -50,15 +50,7 @@
         android:textColor="@color/white"
         android:textSize="30dp" />
 
-    <Button
-        android:id="@+id/historial"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginVertical="500dp"
-        android:background="@drawable/stylesbotton"
-        android:text="Historial"
-        android:textColor="@color/nequi_colo1" />
+
 
     <Button
         android:id="@+id/enviar"

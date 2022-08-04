@@ -3,6 +3,7 @@ package com.example.nequi_clon;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -19,7 +20,7 @@ public class Interfas extends AppCompatActivity {
     DBHelper DB;
     Bundle bundle;
     String celularU1;
-    Button enviar, historial;
+    Button enviar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +56,6 @@ public class Interfas extends AppCompatActivity {
             }
         });
 
-        historial = findViewById(R.id.historial);
-        historial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), com.example.nequi_clon.historial.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

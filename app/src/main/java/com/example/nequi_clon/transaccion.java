@@ -16,11 +16,9 @@ import android.widget.Toast;
 public class transaccion extends AppCompatActivity {
     EditText celularH,saldoH, celulardestinoH;
     Toast toast;
-    Button enviarDinero, volver;
+    Button enviarDinero, volver, historial;
     DBHelper DB;
-
-
-
+    consultar CO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +26,7 @@ public class transaccion extends AppCompatActivity {
 
         setContentView(R.layout.activity_transaccion);
         DB = new DBHelper(this);
+        CO = new consultar(this);
 
         int saldo = Integer.parseInt(getIntent().getExtras().getString("saldo"));// putExtra de interfacas a transaccion del saldo
 
@@ -50,29 +49,32 @@ public class transaccion extends AppCompatActivity {
                 String monto = saldoH.getText().toString();
                 String celularD= celulardestinoH.getText().toString();
 
+
+
                 if(TextUtils.isEmpty(celular) || TextUtils.isEmpty(monto) ||  TextUtils.isEmpty(celularD))
                 alertToast("Llenar todos los campos");
 
                 else if(Integer.parseInt(monto) <= saldo){ //convertir Strind monto de a entero
-
                     int num1=Integer.parseInt(monto);
                     int resta = saldo - num1 ;
                     String resu = String.valueOf(resta);
 
+
                     Boolean isUpdate = DB.updatesaldo(celularH.getText().toString(),resu);
 
                     if(isUpdate == true){
-                        alertToast("Envio exitoso");
+                            Boolean cheackInset = CO.insertDataH(celular,monto,celularD);
+                            if(cheackInset == true){
+                                alertToast("Envio exitoso");
+                            }else
+                                alertToast("Falla en el envio");
 
+                            celularH.setText("");
+                            saldoH.setText("");
+                            celulardestinoH.setText("");
 
                     }else
                         alertToast("Fallo en el envio");
-
-
-
-                    celularH.setText("");
-                    saldoH.setText("");
-                    celulardestinoH.setText("");
                 }else
                     alertToast("El monto supera su saldo");
                 }
@@ -81,14 +83,25 @@ public class transaccion extends AppCompatActivity {
 
         volver = findViewById(R.id.volver);
         volver.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(transaccion.this,Interfas.class);
+                startActivity(intent);
+
+            }
+        });
+
+        historial = findViewById(R.id.historial);
+        historial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Interfas.class);
-                startActivity(intent);
+                startActivity(new Intent(transaccion.this, Historial.class));
+
             }
         });
 
     }
+
+
 
 
     private void alertToast(String msg){

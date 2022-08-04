@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".historial"
+            android:name=".Historial"
             android:exported="false" />
         <activity
             android:name=".transaccion"

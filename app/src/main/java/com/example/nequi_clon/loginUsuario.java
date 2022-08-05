@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class loginUsuario extends AppCompatActivity {
 
     EditText celularU1,password1;
-    Button signin1;
+    Button signin1,volver;
     DBHelper DB;
     Toast toast;
 
@@ -56,10 +56,22 @@ public class loginUsuario extends AppCompatActivity {
                 }
             }
         });
+        volver = findViewById(R.id.volverInicio);
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void alertToast(String msg){
         if(toast != null) toast.cancel();
         toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
         toast.show();
+    }
+    @Override
+    public void onBackPressed(){
+
     }
 }

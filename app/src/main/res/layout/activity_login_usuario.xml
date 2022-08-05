@@ -51,9 +51,20 @@
         android:id="@+id/signin1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/stylesbotton"
-        android:layout_marginHorizontal="30dp"
         android:layout_below="@+id/password1"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="90dp"
-        android:text="Entrar"/>
+        android:background="@drawable/stylesbotton"
+        android:text="Entrar" />
+
+    <Button
+        android:id="@+id/volverInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signin1"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/stylesbotton"
+        android:text="Volver"
+        />
 </RelativeLayout>

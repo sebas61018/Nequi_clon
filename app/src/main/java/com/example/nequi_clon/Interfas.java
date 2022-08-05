@@ -1,6 +1,7 @@
 package com.example.nequi_clon;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,12 +16,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Interfas extends AppCompatActivity {
     TextView usuNobre ,saldoUsuario ;
     DBHelper DB;
     Bundle bundle;
     String celularU1;
-    Button enviar;
+    Button enviar, historial;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +41,20 @@ public class Interfas extends AppCompatActivity {
         bundle = getIntent().getExtras();
         celularU1 = bundle.getString("celularU1");
 
+
         usuNobre = findViewById(R.id.nombreDeusuario);
         usuNobre.setText(DB.consultar(celularU1));
 
         saldoUsuario = findViewById(R.id.saldoUsuario);
+
+
         saldoUsuario.setText(DB.consultarsaldo(celularU1));
 
         String saldo= DB.consultarsaldo(celularU1);
-        
+        String usuC = celularU1;
+
+
+
 
 
 
@@ -49,13 +63,14 @@ public class Interfas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),transaccion.class);
-                intent.putExtra("saldo",saldo);// putExtra mandar datos a laransaccionstartActivity(intent);
+                intent.putExtra("saldo",saldo);
+                intent.putExtra("usuc",usuC);
                 startActivity(intent);
+
 
 
             }
         });
-
 
     }
 

@@ -1,0 +1,17 @@
+
+C
+java:S1604""(Make this anonymous inner class a lambda(¥ï‹óúÿÿÿÿ
+>
+java:S1604<"(Make this anonymous inner class a lambda(ªÅš‡
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦ŠˆÜıÿÿÿÿ
+@
+java:S5411,"*Use the primitive boolean expression here.(¼ÿÓ±
+g	java:S116"MRename this field "DB" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×„Ãµÿÿÿÿÿ
+œ
+java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œƒƒ©ùÿÿÿÿ
+=
+java:S1659"'Declare "password1" on a separate line.(ÈìıÀ
+:
+java:S1659"$Declare "volver" on a separate line.(èéŞæ
+=
+java:S1125,"'Remove the unnecessary boolean literal.(¼ÿÓ±

@@ -10,13 +10,10 @@ import android.widget.Toast;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static final String DBNAME="login.db";
+    private static final String DATABASE_NAME="login.db";
 
-    public DBHelper(Context context) {
 
-        super(context, "login.db",
-                null, 1);
-    }
+    public DBHelper(Context context) {super(context, "login.db", null, 1);}
 
 
     @Override
@@ -24,15 +21,22 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table users(celularU TEXT primary key, password TEXT, nameU TEXT,saldo TEXT)");
 
 
+
+
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int ii) {
         db.execSQL("drop table if exists users");
 
 
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  registro de usuario
     public Boolean insertData(String celularU,String password, String nameU){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -47,6 +51,8 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+
+
 
 
     public Boolean checkusername(String celularU){
@@ -70,6 +76,8 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
 
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////
 
     public String consultar(String celularU){
         SQLiteDatabase db = this.getWritableDatabase();

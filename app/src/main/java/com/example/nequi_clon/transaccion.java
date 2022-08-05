@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,29 +15,32 @@ import android.widget.Toast;
 
 
 public class transaccion extends AppCompatActivity {
-    EditText celularH,saldoH, celulardestinoH;
+    EditText saldoH, celulardestinoH;
     Toast toast;
-    Button enviarDinero, volver, historial;
+    Button enviarDinero, volver;
     DBHelper DB;
-    consultar CO;
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         setContentView(R.layout.activity_transaccion);
         DB = new DBHelper(this);
-        CO = new consultar(this);
+
 
         int saldo = Integer.parseInt(getIntent().getExtras().getString("saldo"));// putExtra de interfacas a transaccion del saldo
+        String usuc = getIntent().getExtras().getString("usuc");
 
-        celularH = findViewById(R.id.celularPropietario);
+
         saldoH = findViewById(R.id.dinerotransaccion);
         celulardestinoH = findViewById(R.id.celularDestino);
-
-
-
-
 
 
         enviarDinero = findViewById(R.id.enviarDinero);
@@ -45,36 +49,34 @@ public class transaccion extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String celular = celularH.getText().toString();
-                String monto = saldoH.getText().toString();
-                String celularD= celulardestinoH.getText().toString();
+
+                String montoTXT = saldoH.getText().toString();
+                String celularDTXT= celulardestinoH.getText().toString();
 
 
-
-                if(TextUtils.isEmpty(celular) || TextUtils.isEmpty(monto) ||  TextUtils.isEmpty(celularD))
+                if( TextUtils.isEmpty(montoTXT) ||  TextUtils.isEmpty(celularDTXT))
                 alertToast("Llenar todos los campos");
 
-                else if(Integer.parseInt(monto) <= saldo){ //convertir Strind monto de a entero
-                    int num1=Integer.parseInt(monto);
+                else if(Integer.parseInt(montoTXT) <= saldo){ //convertir Strind monto de a entero
+                    int num1=Integer.parseInt(montoTXT);
                     int resta = saldo - num1 ;
                     String resu = String.valueOf(resta);
 
 
-                    Boolean isUpdate = DB.updatesaldo(celularH.getText().toString(),resu);
+                    Boolean isUpdate = DB.updatesaldo(usuc,resu);
 
                     if(isUpdate == true){
-                            Boolean cheackInset = CO.insertDataH(celular,monto,celularD);
-                            if(cheackInset == true){
-                                alertToast("Envio exitoso");
-                            }else
-                                alertToast("Falla en el envio");
-
-                            celularH.setText("");
-                            saldoH.setText("");
-                            celulardestinoH.setText("");
-
+                        alertToast("envio Exitoso");
+                        saldoH.setText("");
+                        celulardestinoH.setText("");
+                        Intent intent = new Intent(transaccion.this,Interfas.class);
+                        intent.putExtra("celularU1",usuc);
+                        startActivity(intent);
+                        finish();
                     }else
-                        alertToast("Fallo en el envio");
+                        alertToast("fallas en el envio");
+
+
                 }else
                     alertToast("El monto supera su saldo");
                 }
@@ -84,23 +86,21 @@ public class transaccion extends AppCompatActivity {
         volver = findViewById(R.id.volver);
         volver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(transaccion.this,Interfas.class);
-                startActivity(intent);
-
-            }
-        });
-
-        historial = findViewById(R.id.historial);
-        historial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(transaccion.this, Historial.class));
+//                Intent intent = new Intent(getApplicationContext(),Interfas.class);
+//                startActivity(intent);
+                transaccion.super.onBackPressed();
+                    finish();
+                
 
             }
         });
 
     }
 
+    @Override
+    public void onBackPressed(){
+
+    }
 
 
 

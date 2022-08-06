@@ -1,6 +1,7 @@
 package com.example.nequi_clon;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -25,6 +26,7 @@ public class transaccion extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +37,13 @@ public class transaccion extends AppCompatActivity {
         DB = new DBHelper(this);
 
 
-        int saldo = Integer.parseInt(getIntent().getExtras().getString("saldo"));// putExtra de interfacas a transaccion del saldo
+        int saldo = Integer.parseInt(getIntent().getExtras().getString("saldo"));
         String usuc = getIntent().getExtras().getString("usuc");
-
+        // putExtra de interfacas a transaccion del saldo , celular usuario
 
         saldoH = findViewById(R.id.dinerotransaccion);
         celulardestinoH = findViewById(R.id.celularDestino);
-
+        String n1= "2";
 
         enviarDinero = findViewById(R.id.enviarDinero);
         enviarDinero.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,7 @@ public class transaccion extends AppCompatActivity {
 
                 String montoTXT = saldoH.getText().toString();
                 String celularDTXT= celulardestinoH.getText().toString();
+                DB.insertarContacto(celularDTXT,montoTXT,usuc);
 
 
                 if( TextUtils.isEmpty(montoTXT) ||  TextUtils.isEmpty(celularDTXT))
@@ -62,8 +65,8 @@ public class transaccion extends AppCompatActivity {
                     int resta = saldo - num1 ;
                     String resu = String.valueOf(resta);
 
-
                     Boolean isUpdate = DB.updatesaldo(usuc,resu);
+
 
                     if(isUpdate == true){
                         alertToast("envio Exitoso");
@@ -75,8 +78,6 @@ public class transaccion extends AppCompatActivity {
                         finish();
                     }else
                         alertToast("fallas en el envio");
-
-
                 }else
                     alertToast("El monto supera su saldo");
                 }
@@ -86,8 +87,6 @@ public class transaccion extends AppCompatActivity {
         volver = findViewById(R.id.volver);
         volver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(),Interfas.class);
-//                startActivity(intent);
                 transaccion.super.onBackPressed();
                     finish();
                 
@@ -101,8 +100,6 @@ public class transaccion extends AppCompatActivity {
     public void onBackPressed(){
 
     }
-
-
 
     private void alertToast(String msg){
         if(toast != null) toast.cancel();

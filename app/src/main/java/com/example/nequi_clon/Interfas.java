@@ -72,6 +72,15 @@ public class Interfas extends AppCompatActivity {
             }
         });
 
+        historial= findViewById(R.id.historial);
+        historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Historial.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

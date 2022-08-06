@@ -7,10 +7,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME="login.db";
+    private static final String TABLA_NAME1 ="users";
+    private static final String TABLA_NAME2 ="histo";
+
+
 
 
     public DBHelper(Context context) {super(context, "login.db", null, 1);}
@@ -18,7 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table users(celularU TEXT primary key, password TEXT, nameU TEXT,saldo TEXT)");
+        db.execSQL("create table "+TABLA_NAME1+"(celularU TEXT primary key, password TEXT, nameU TEXT,saldo TEXT)");
+        db.execSQL("create table "+TABLA_NAME2+"(dinero TEXT,celularE TEXT,celularP TEXT)");
 
 
 
@@ -28,10 +37,57 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int ii) {
         db.execSQL("drop table if exists users");
+        db.execSQL("drop table if exists histo");
 
 
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    public void insertarContacto(String dinero,String celularE,String celularP){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+
+        ContentValues values = new ContentValues();
+        values.put("dinero",dinero);
+        values.put("celularE",celularE);
+        values.put("celularP",celularP);
+
+        db.insert("histo" ,null,values);
+
+
+    }
+    Context context;
+    public ArrayList<HistorialContactos> mostrarContactos(){
+        DBHelper dbHelper = new DBHelper(context);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        ArrayList<HistorialContactos> listaContactos = new ArrayList<>();
+        HistorialContactos contacto = null;
+        Cursor cursorContactos = null;
+
+
+        cursorContactos = db.rawQuery("select * from " + TABLA_NAME2,null);
+
+        if(cursorContactos.moveToFirst()){
+            do{
+                contacto = new HistorialContactos();
+                contacto.setCelularh(cursorContactos.getString(0));
+                contacto.setDinero(cursorContactos.getString(1));
+                contacto.setCelular(cursorContactos.getString(2));
+
+
+                listaContactos.add(contacto);
+            } while (cursorContactos.moveToNext());
+        }
+
+        cursorContactos.close();
+        return listaContactos;
+
+    }
+
+
 
 
 

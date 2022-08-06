@@ -51,7 +51,9 @@ public class Interfas extends AppCompatActivity {
         saldoUsuario.setText(DB.consultarsaldo(celularU1));
 
         String saldo= DB.consultarsaldo(celularU1);
+
         String usuC = celularU1;
+        String usuH = celularU1;
 
 
 
@@ -77,6 +79,7 @@ public class Interfas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Interfas.this,Historial.class);
+                intent.putExtra("usuh",usuH);
                 startActivity(intent);
             }
         });

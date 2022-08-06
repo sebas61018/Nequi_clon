@@ -41,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////// historial
 
 
     public void insertarContacto(String celularE, String dinero,String celularP){
@@ -65,11 +65,22 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public Boolean consultaHistorial(String celularP){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.rawQuery("select * from histo where celularP='"+celularP+"'",null);
+
+        return true;
+
+    }
 
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  registro de usuario
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  registro de usuario
     public Boolean insertData(String celularU,String password, String nameU){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -142,6 +153,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public boolean VeryUser(String celularU){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from users where celularU='"+celularU+"'",null);
+
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
 
 }

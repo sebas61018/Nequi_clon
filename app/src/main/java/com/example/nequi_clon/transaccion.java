@@ -55,7 +55,7 @@ public class transaccion extends AppCompatActivity {
                 String montoTXT = saldoH.getText().toString();
                 String celularDTXT= celulardestinoH.getText().toString();
 
-                DB.insertarContacto(celularDTXT,montoTXT,usuc);// celular destino , monto , celular dueño
+               // celular destino , monto , celular dueño
 
 
                 if( TextUtils.isEmpty(montoTXT) ||  TextUtils.isEmpty(celularDTXT))
@@ -66,19 +66,26 @@ public class transaccion extends AppCompatActivity {
                     int resta = saldo - num1 ;
                     String resu = String.valueOf(resta);
 
-                    Boolean isUpdate = DB.updatesaldo(usuc,resu);
+                    boolean vey = DB.VeryUser(celularDTXT);
 
+                    if (vey == true){
 
-                    if(isUpdate == true){
-                        alertToast("envio Exitoso");
-                        saldoH.setText("");
-                        celulardestinoH.setText("");
-                        Intent intent = new Intent(transaccion.this,Interfas.class);
-                        intent.putExtra("celularU1",usuc);
-                        startActivity(intent);
-                        finish();
-                    }else
-                        alertToast("fallas en el envio");
+                        DB.insertarContacto(celularDTXT,montoTXT,usuc);
+                        Boolean isUpdate = DB.updatesaldo(usuc,resu);
+                        if(isUpdate == true){
+                            alertToast("envio Exitoso");
+                            saldoH.setText("");
+                            celulardestinoH.setText("");
+                            Intent intent = new Intent(transaccion.this,Interfas.class);
+                            intent.putExtra("celularU1",usuc);
+                            startActivity(intent);
+                            finish();
+                        }else
+                            alertToast("fallas en el envio");
+                    }else {
+                        alertToast("Ese numero no Tiene requistro en Nequi");
+                    }
+
                 }else
                     alertToast("El monto supera su saldo");
                 }

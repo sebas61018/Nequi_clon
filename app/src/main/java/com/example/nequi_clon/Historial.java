@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class Historial extends AppCompatActivity {
+    Toast toast;
 
     RecyclerView recyclerView;
     ArrayList<String> celarDTXT, montoTXT , usuc;
@@ -37,7 +39,6 @@ public class Historial extends AppCompatActivity {
         dispayData();
 
 
-
     }
 
     private void dispayData() {
@@ -46,10 +47,17 @@ public class Historial extends AppCompatActivity {
 
         while (cursor.moveToNext())
         {
-            celarDTXT.add(cursor.getString(0));
-            montoTXT.add(cursor.getString(1));
-            usuc.add(cursor.getString(2));
+            celarDTXT.add(0,cursor.getString(0));
+            montoTXT.add(0,cursor.getString(1));
+            usuc.add(0,cursor.getString(2));
         }
 
+    }
+
+
+    private void alertToast(String msg){
+        if(toast != null) toast.cancel();
+        toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

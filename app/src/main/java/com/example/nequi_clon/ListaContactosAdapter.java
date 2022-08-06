@@ -1,5 +1,6 @@
 package com.example.nequi_clon;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,49 +13,51 @@ import java.util.ArrayList;
 
 public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAdapter.ContactoViewHolder> {
 
-    //contructor
-    ArrayList<HistorialContactos>listContactos;
-    public ListaContactosAdapter(ArrayList<HistorialContactos>listContactos){
-        this.listContactos = listContactos;
+    private Context context;
+    private ArrayList celularE_id , dinero_id , celularP_id;
+
+    public ListaContactosAdapter(Context context, ArrayList celularE_id, ArrayList dinero_id, ArrayList celularP_id) {
+        this.context = context;
+        this.celularE_id = celularE_id;
+        this.dinero_id = dinero_id;
+        this.celularP_id = celularP_id;
     }
 
     @NonNull
     @Override
-
-    //identifica cual sera el diseño de cada elemento
     public ContactoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_historial,null,false);
-       return new ContactoViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.userentry,parent,false);
+
+        return new ContactoViewHolder(view);
     }
 
-
-    //asignar los elementos que corresponde para cada opcion
     @Override
     public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
-        holder.viewCelularP.setText(listContactos.get(position).getCelularP());
-        holder.viewDinero.setText(listContactos.get(position).getDinero());
-        holder.viewCelularE.setText(listContactos.get(position).getCelular());
 
+            holder.celularE_id.setText(String.valueOf(celularE_id.get(position)));
+            holder.dinero_id.setText(String.valueOf(dinero_id.get(position)));
+            holder.celularP_id.setText(String.valueOf(celularP_id.get(position)));
     }
 
-
-    // tamaño que tenemos de nuestra lista
     @Override
     public int getItemCount() {
-        return listContactos.size();
+        return celularE_id.size();
     }
 
     public class ContactoViewHolder extends RecyclerView.ViewHolder {
-
-        TextView viewCelularP,viewDinero,viewCelularE;
+        TextView celularE_id , dinero_id , celularP_id;
 
         public ContactoViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            viewCelularP = itemView.findViewById(R.id.viewCelularP);
-            viewDinero = itemView.findViewById(R.id.viewDinero);
-            viewCelularE = itemView.findViewById(R.id.viewCelularE);
+            celularE_id = itemView.findViewById(R.id.textCelularDTXT);
+            dinero_id = itemView.findViewById(R.id.textMontoTXT);
+            celularP_id = itemView.findViewById(R.id.textUsucTXT);
 
         }
     }
+    //contructor
+    //identifica cual sera el diseño de cada elemento
+    //asignar los elementos que corresponde para cada opcion
+    // tamaño que tenemos de nuestra lista
 }

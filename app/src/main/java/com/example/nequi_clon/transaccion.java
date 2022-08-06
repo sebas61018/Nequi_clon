@@ -43,8 +43,8 @@ public class transaccion extends AppCompatActivity {
 
         saldoH = findViewById(R.id.dinerotransaccion);
         celulardestinoH = findViewById(R.id.celularDestino);
-        String n1= "2";
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         enviarDinero = findViewById(R.id.enviarDinero);
         enviarDinero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,8 @@ public class transaccion extends AppCompatActivity {
 
                 String montoTXT = saldoH.getText().toString();
                 String celularDTXT= celulardestinoH.getText().toString();
-                DB.insertarContacto(celularDTXT,montoTXT,usuc);
+
+                DB.insertarContacto(celularDTXT,montoTXT,usuc);// celular destino , monto , celular dueño
 
 
                 if( TextUtils.isEmpty(montoTXT) ||  TextUtils.isEmpty(celularDTXT))
@@ -83,7 +84,7 @@ public class transaccion extends AppCompatActivity {
                 }
 
         });
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         volver = findViewById(R.id.volver);
         volver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -95,7 +96,7 @@ public class transaccion extends AppCompatActivity {
         });
 
     }
-
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void onBackPressed(){
 

@@ -9,14 +9,11 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/Nequi_clon/app/src/main/res/layout/activity_splahcreen.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/drawable/stylesbotton.xml" value="0.1015" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/drawable/stylesbottoncirculo.xml" value="0.145" />
-        <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/activity_historial.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/activity_inicio_usuario.xml" value="0.225" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/activity_login_usuario.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/activity_main.xml" value="0.225" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/activity_password_usuarios.xml" value="0.225" />
         <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/activity_registro_usuario.xml" value="0.225" />
-        <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/lista_historial.xml" value="0.21979166666666666" />
-        <entry key="..\:/Users/Usuario/Documents/Nequi_clon/app/src/main/res/layout/userentry.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/drawable/ic_cell.xml" value="0.227" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/drawable/ic_launcher_background.xml" value="0.227" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/drawable/stylesbotton.xml" value="0.227" />
@@ -24,7 +21,7 @@
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/drawable/styleseditext.xml" value="0.1" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/drawable/styleseditextdos.xml" value="0.1955" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_enviar_dinero.xml" value="0.33242753623188404" />
-        <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_historial.xml" value="0.3625" />
+        <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_historial.xml" value="0.5412130637636081" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_interfas.xml" value="0.3484375" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_login_usuario.xml" value="0.33242753623188404" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_main.xml" value="0.23369565217391305" />
@@ -37,6 +34,7 @@
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/activity_userlist.xml" value="0.3484375" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/fragment_second.xml" value="0.33242753623188404" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/list_element.xml" value="0.2965811965811966" />
+        <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/lista_historial.xml" value="0.3625" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/lista_item_contacto.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/userentry.xml" value="0.3625" />
         <entry key="..\:/Users/sebas/Documents/Nequi_clon/app/src/main/res/layout/viewcontenst_layout.xml" value="0.3625" />

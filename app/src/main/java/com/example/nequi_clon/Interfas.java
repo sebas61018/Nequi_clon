@@ -76,7 +76,7 @@ public class Interfas extends AppCompatActivity {
         historial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Historial.class);
+                Intent intent = new Intent(Interfas.this,Historial.class);
                 startActivity(intent);
             }
         });

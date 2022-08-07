@@ -67,8 +67,15 @@ public class transaccion extends AppCompatActivity {
                     String resu = String.valueOf(resta);
 
                     boolean vey = DB.VeryUser(celularDTXT);
-
                     if (vey == true){
+
+                        String enviadoSaldo = DB.consultarEnvio(celularDTXT);
+                        int env = Integer.parseInt(enviadoSaldo);
+                        int resuSuma = env + num1;
+                        String sum = String.valueOf(resuSuma);
+                        DB.updatesaldoEnvio(celularDTXT,sum);
+                        
+
 
                         DB.insertarContacto(celularDTXT,montoTXT,usuc);
                         Boolean isUpdate = DB.updatesaldo(usuc,resu);

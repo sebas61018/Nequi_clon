@@ -166,4 +166,23 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public String consultarEnvio(String celularU){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from users where celularU='"+celularU+"'",null);
+        cursor.moveToFirst();
+        return cursor.getString(3);
+    }
+
+    public void updatesaldoEnvio(String celularU, String saldo){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("celularU",celularU);
+        values.put("saldo",saldo);
+
+
+        db.update("users",values,"celularU='"+celularU+"'",null);
+    }
+
 }
